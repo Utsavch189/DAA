@@ -1,0 +1,14 @@
+1. get the idea about agriculture dataset--
+
+2.get the basic idea about crops,instruments etc--
+
+3.the ph value of soil --
+
+4.divide states and create parts of india to give the info to farmers in local lang--
+
+5.the required soil ph for every crops--
+
+6.latest agriculture news for farmers--
+
+7.required climatic situation for crops--
+ 

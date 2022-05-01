@@ -1,0 +1,140 @@
+from django.db import models
+from datetime import datetime
+from django.contrib.auth.models import User
+# Create your models here.
+class Student(models.Model):
+    name=models.CharField(max_length=100 ,blank=True,null=True)
+    date_of_birth=models.CharField(max_length=50 ,blank=True,null=True)
+    gurdian_name=models.CharField(max_length=100 ,blank=True,null=True)
+    contact=models.CharField(max_length=11 ,blank=True,null=True)
+    whatsapp=models.CharField(max_length=11 ,blank=True,null=True)
+    email=models.CharField(max_length=100 ,blank=True,null=True)
+    address=models.CharField(max_length=100 ,blank=True,null=True)
+    school_college_name=models.CharField(max_length=50 ,blank=True,null=True)
+    appearing_passed_12=models.CharField(max_length=50 ,blank=True,null=True)
+    board_name=models.CharField(max_length=10 ,blank=True,null=True)
+    appeared_wbjee_jeeMain=models.CharField(max_length=10 ,blank=True,null=True)
+    date_register=models.DateField(default=0)
+
+    def __str__(self):
+        return self.name
+
+
+
+
+
+
+
+    if request.method=='POST':
+        name=request.POST.get('name')
+        gurdian=request.POST.get('gurdian')
+        year=request.POST.get('year')
+        month=request.POST.get('month')
+        date=request.POST.get('date')
+        phone=request.POST.get('phone')
+        whatsapp=request.POST.get('whatsapp')
+        email=request.POST.get('email')
+        address=request.POST.get('address')
+        status=request.POST.get('status')
+        board=request.POST.get('board')
+        entrance=request.POST.get('entrance')
+        instu=request.POST.get('inst')
+        print(board)
+        date_of_birth1=str(date)+'/'+str(month)+'/'+str(year)
+        date_of_birth2=str(date)+str(month)+str(year)
+        smodel=Student(name=name,date_of_birth=date_of_birth1,gurdian_name=gurdian,contact=phone,whatsapp=whatsapp,email=email,address=address,school_college_name=instu,appearing_passed_12=status,board_name=board,appeared_wbjee_jeeMain=entrance,date_register=datetime.now())
+        smodel.save()
+
+
+
+
+
+
+
+
+<div class="container py-4 px-5">
+    <form method="POST" action="/register">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Full name">
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Gurdian's Name</label>
+            <input type="text" class="form-control" id="gurdian" name="gurdian" placeholder="Gurdian's Name">
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Date of Birth</label>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Year" aria-label="First name" id="year" name="year">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Month" aria-label="Last name" id="month" name="month">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Date" aria-label="Last name" id="date" name="date">
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Phone Number</label>
+            <div class="row">
+                <div class="col">
+                    <input type="text" id="phone"  data-fv-numeric-message="Please enter valid phone numbers" data-fv-phone-country11="IN" required="required" data-fv-notempty-message="This field cannot be left blank." placeholder="Contact Number"
+                        class="form-control" name="phone">
+                </div>
+                <div class="col">
+                    <input type="text" id="whatsapp"  data-fv-numeric-message="Please enter valid phone numbers" data-fv-phone-country11="IN" required="required" data-fv-notempty-message="This field cannot be left blank." placeholder="Whatsapp Number"
+                        class="form-control" name="whatsapp">
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
+            <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Residential Address</label>
+            <input type="text" class="form-control" id="address" name="address" placeholder="Enter Your Permanent Address">
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name of the Institution</label>
+            <input type="text" class="form-control" id="inst" name="inst" placeholder="School / College Name">
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Status of Higher Secondery Education</label>
+            <select name="status" id="status" required="required">
+                <option value="None">Choose</option>
+
+        <option value="Appearing">Appearing</option>
+        <option value="Passed">Passed</option>
+        
+        </select>
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Select Your Examination board</label>
+            <select name="board" id="board" required="required">
+                <option value="None">Choose</option>
+
+               <option value="ISC">ISC</option>
+               <option value="WBCHSE">WBCHSE</option>
+               <option value="CBSE">CBSE</option>
+               <option value="others">others</option>
+           </select>
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Are you appearing/appeared in WBJEE/JEE MAINS</label>
+            <select name="entrance" id="entrance" required="required">
+                <option value="None">Choose</option>
+
+<option value="yes">Yes</option>
+<option value="no">No</option>
+
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary" value="register">Submit</button>
+    </form>
+</div>
+

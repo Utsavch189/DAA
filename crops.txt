@@ -1,0 +1,16 @@
+rice 
+wheat
+cotton
+potato
+onion
+tobacco
+sugercane
+pumpkin
+cucumber
+watermelon
+mustard
+dates
+garlic
+jute
+
+                      we need diseases name of those crops, symptoms , prevention
